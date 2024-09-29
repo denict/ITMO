@@ -6,7 +6,7 @@ public class Lab1 {
     static double[] x = new double[19];
     static double[][] z1 = new double[17][19];
 
-    // filling function with required calculated numbers for filling z1-array
+    // filling method with required calculated numbers for filling z1-array
     public static double calculate(int i, int j) {
         switch (z[i]) {
             case 14:
@@ -25,7 +25,7 @@ public class Lab1 {
         }
     }
 
-    // Matrix output function for z1-array
+    // Matrix output method for z1-array
     public static void Matrixprint(double[][] z1) {
         for (int i = 0; i < z1.length; i++) {
             for (int j = 0; j < z1[i].length; j++) {
