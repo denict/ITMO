@@ -26,7 +26,7 @@ public class Lab1 {
     }
 
     // Matrix output method for z1-array
-    public static void Matrixprint(double[][] z1) {
+    public static void matrixprint(double[][] z1) {
         for (int i = 0; i < z1.length; i++) {
             for (int j = 0; j < z1[i].length; j++) {
                 System.out.printf("%8.3f", z1[i][j]);
@@ -60,7 +60,7 @@ public class Lab1 {
         }
 
         // matrix output
-        Matrixprint(z1);
+        matrixprint(z1);
 
     }
 }
