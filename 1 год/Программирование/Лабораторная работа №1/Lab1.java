@@ -29,7 +29,7 @@ public class Lab1 {
     public static void matrixprint(double[][] z1) {
         for (int i = 0; i < z1.length; i++) {
             for (int j = 0; j < z1[i].length; j++) {
-                System.out.printf("%8.3f", z1[i][j]);
+                System.out.printf("%6.3f\t", z1[i][j]);
             }
             System.out.println();
         }
