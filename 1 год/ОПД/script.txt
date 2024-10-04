@@ -1,0 +1,154 @@
+# Создать приведенное в варианте дерево каталогов и файлов с содержимым.
+# В качестве корня дерева использовать каталог lab0 своего домашнего каталога.
+# Для создания и навигации по дереву использовать команды: mkdir, echo, cat, touch, ls, pwd, cd, more, cp, rm, rmdir, mv.
+# Задание №1
+mkdir lab0
+cd lab0
+echo -e "Живет Cave Mountain" > charizard4
+mkdir magnemite6
+cd magnemite6
+echo -e "Возможности Overland=4\nSurface=7 Underwater=6 Jump3=0 Power=1 Intelligence=4\nFountain=0" > tympole
+echo -e "Возможности Overland=4 Surface=12 Underwater=12\nJump=3 Power=6 Intelligence=4 Fountain=0" > wailord
+echo -e "Способности Headbutt\nGrowl Water Sport Icy Wind Encore Ice Shard Rest Aqua Ring Aurora Beam\nAqua Jet Brine Take Down Dive Aqua Tail Ice Beam Safeguard\nHail" > seel
+cd ..
+echo -e "satk=6 sdef=12 spd=5" > mantyke7
+echo -e "Способности Defense Curl\nPsywave Lucky Chant Yawn Psybeam Imprison Moonlight Hypnosis Zen\nHeadbutt Synchronoise Nightmare Future Sight Calm Mind Psychic Dream\nEater Telekinesis Stored Power" > munna7
+mkdir salamance2
+cd salamance2
+mkdir snover lumineon
+echo -e "Способности Torrent Hyper\nCutter Shell Armor" > kingler
+mkdir zorua jigglypuff
+echo -e "Тип покемона GHOST NONE" > shuppet
+cd ..
+mkdir shiftry7
+cd shiftry7
+echo "Тип\nокемона ROCK FLYING" > archen
+echo "satk=8 sdef=10 spd=11" > seprerior
+mkdir grumpig
+cd ..
+
+# Установить согласно заданию права на файлы и каталоги при помощи команды chmod, используя различные способы указания прав.
+# Задание №2
+chmod u=rw,g=,o=r charizard4
+chmod 307 magnemite6/
+chmod u=r,go= ./magnemite6/tympole
+chmod u=r,go= ./magnemite6/wailord
+chmod u=rw,g=w,o= ./magnemite6/seel
+chmod u=r,g=,o=r mantyke7
+chmod 006 munna7
+chmod u=wx,go=x salamance2/
+chmod ug=wx,o=rx ./salamance2/snover/
+chmod u=rwx,g=rx,o=wx ./salamance2/lumineon/
+chmod u=r,go= ./salamance2/kingler
+chmod 570 ./salamance2/zorua/
+chmod u=wx,g=rw,o=wx ./salamance2/jigglypuff/
+chmod 666 ./salamance2/shuppet
+chmod u=rwx,g=rx,o=w shiftry7
+chmod u=rw,g=r,o= ./shiftry7/archen
+chmod u=r,go= ./shiftry7/seprerior
+chmod 305 ./shiftry7/grumpig/
+
+# Скопировать часть дерева и создать ссылки внутри дерева согласно заданию при помощи команд cp и ln,
+# а также команды cat и перенаправления ввода-вывода.
+# Задание №3
+ln -s ./salamance2/ ./Copy_98
+ln -s mantyke7 ./shiftry7/archenmantyke
+# скопировать рекурсивно директорию salamance2
+# в директорию lab0/salamance2/jigglypuff
+# Разрешение создание ссылки в директории "salamance2" и "jigglypuff"
+chmod 700 salamance2 salamance2/jigglypuff
+cp -r salamance2/* salamance2/jigglypuff 2> /tmp/error
+chmod u=wx,go=x salamance2/
+chmod u=wx,g=rw,o=wx ./salamance2/jigglypuff/
+# разрешение копировать файл "munna7"
+chmod 700 munna7
+cp munna7 ./magnemite6/tympolemunna
+chmod 006 munna7
+# Разрешение просмотра директории magnemite6
+chmod 700 magnemite6
+# ls -lR
+chmod 307 magnemite6/
+# Объединение содержимое файлов в новый файл с помощью "cat" - catenate (сцепить), конкатенация
+cat ./magnemite6/tympole ./magnemite6/tympole > ./mantyke7_55
+# Создание жёсткой ссылки для файла "mantyke7" с именем "lab0/salamance2/kinglermantyke"
+ln ~/scripts/lab0/mantyke7 ./salamance2/kinglermantyke
+# Разрешение просмотра директории magnemite6 для директории salamance2
+chmod 700 salamance2/
+# ls -lR
+chmod u=wx,go=x salamance2/
+# Разрешение для директории, чтобы скопировать в неё файл "mantyke7"
+chmod 700 salamance2/zorua
+cp mantyke7 ./salamance2/zorua
+chmod 570 ./salamance2/zorua/
+#chmod -R 700 .
+#ls -lR
+#sh script2.sh
+
+# Используя команды cat, wc, ls, head, tail, echo, sort, grep выполнить в соответствии
+# с вариантом задания поиск и фильтрацию файлов, каталогов и содержащихся в них данных.
+# Задание №4
+
+touch /tmp/error
+
+#Рекурсивно подсчитать количество строк содержимого файлов из директории lab0, имя которых начинается на 'm',
+#отсортировать вывод по уменьшению количества, ошибки доступа перенаправить в файл в директории /tmp
+# Разрешения для того, чтобы читать содержимое директорий и файлов
+echo -e "\n 4.1 -->\n"
+chmod 700 shiftry7/grumpig/
+chmod 700 salamance2/snover
+chmod 700 magnemite6
+grep -r --include='m*' . 2>> /tmp/error | sort -r | wc -l
+
+# Вывести три последних элемента рекурсивного списка имен
+# и атрибутов файлов в директории lab0, список отсортировать
+# по возрастанию даты доступа к файлу, подавить вывод ошибок доступа
+
+echo -e "\n 4.2 -->\n"
+ls -R -ur 2> /tmp/error | tail -3
+
+
+# Вывести содержимое файла munna7, исключить строки, заканчивающиеся на 'l', подавить вывод ошибок доступа
+# даём разрешение на чтение файла "munna7"
+
+echo -e "\n 4.3 --> \n"
+chmod 700 munna7
+cat munna7 2>> /tmp/error | grep -v "l$"
+
+# Вывести три первых элемента рекурсивного списка имен и атрибутов файлов в директории lab0, содержащих строку "le",
+# список отсортировать по возрастанию даты модификации файла, добавить вывод ошибок доступа в стандартный поток вывода
+# Попробуем дать все файлам и директориям в директории lab0 разрешение на чтение и вернём затем обратно.
+echo -e "\n 4.4 --> \n"
+chmod -R 700 .
+ls -lR 2>&1 | grep '^-' | grep 'le' | sort -k 6 -r | head -n 3
+sh script2.sh
+
+# Вывести содержимое файла munna7, оставить только строки, содержащие "qu",
+# регистр символов игнорировать, ошибки доступа не подавлять и не перенаправлять
+
+echo -e "\n 4.5 --> \n"
+chmod 700 munna7
+cat munna7 | grep -i 'qu'
+chmod 006 munna7
+
+# Вывести содержимое файлов с номерами строк в директории
+# magnemite6, оставить только строки, содержащие "sa", регистр
+# символов игнорировать, добавить вывод ошибок доступа в стандартный поток вывода
+
+echo -e "\n 4.6 --> \n"
+chmod -R 700 magnemite6/
+grep -in 'sa' magnemite6/* 2>&1
+chmod 307 magnemite6/
+chmod u=r,go= ./magnemite6/tympole
+chmod u=r,go= ./magnemite6/wailord
+chmod u=rw,g=w,o= ./magnemite6/seel
+
+# Выполнить удаление файлов и каталогов при помощи команд rm и rmdir согласно варианту задания.
+#Задание №5
+chmod 700 mantyke7
+rm -f mantyke7
+rm shiftry7/archen
+rm Copy_*
+rm salamance2/kinglermantyke
+chmod 700 shiftry7/grumpig
+rm -rf shiftry7/
+rm -rf salamence2/jigglypuff
