@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{multicol}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage[a4paper, papersize={18cm, 23.5cm}]{geometry}
+\usepackage{graphicx}
+\usepackage{romannum}
+% \newgeometry{top=1cm, bottom=1.8cm, left=0.8cm, right=1cm,marginal=30cm}
+\geometry{bottom=0.8cm, right=1cm, left=0.8cm, top=1cm}
+\usepackage{caption}
+% Устанавливаем начальное значение счетчика для картинок
+\setcounter{figure}{2 - 1} % Устанавливаем начальное значение счетчика для картинок, почему-то начинает на единицу больше
+\captionsetup[figure]{labelfont=bf} % Выделяем "Рис." жирным
+\captionsetup[table]{labelfont=bf}
+\usepackage{scrextend} % уменьшение размера шрифта
+\setlength\parindent{0} %parindent - Красная строка
+\setlength{\columnsep}{1cm} 
+\setlength{\parskip}{0pt}
+\usepackage{xcolor}
+
+\begin{document}
+    \input{title.tex}
+    \input{page.tex}
+\end{document}
