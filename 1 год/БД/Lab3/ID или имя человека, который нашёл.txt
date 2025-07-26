@@ -1,0 +1,13 @@
+ID или имя человека, который нашёл то, что искал. Искал лодку и нашел лодку, то показать имя человека, который нашел то, что искал.
+Иначе ничего не показывать.
+
+SELECT person.name
+FROM search
+JOIN person ON search.person_id = person.person_id
+LEFT JOIN boat ON search.boat_id = boat.boat_id
+LEFT JOIN box ON box.box_id = search.box_id
+LEFT JOIN map ON map.map_id = search.map_id
+WHERE 
+(search.type_of_search = 'boat' AND boat.boat_id IS NOT NULL) OR 
+(search.type_of_search = 'box' AND box.box_id IS NOT NULL) OR 
+(search.type_of_search = 'map' AND map.map_id IS NOT NULL);
