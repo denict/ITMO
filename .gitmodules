@@ -7,3 +7,6 @@
 [submodule "1 год/Программирование/Lab6_prog"]
 	path = 1 год/Программирование/Lab6_prog
 	url = https://github.com/denict/Lab6_prog
+[submodule "1 год/Программирование/Lab7_prog"]
+	path = 1 год/Программирование/Lab7_prog
+	url = https://github.com/denict/Lab7_prog
